@@ -1,0 +1,51 @@
+[[entries]]
+title = "简介"
+
+  [[entries.entries]]
+  title = "这里是电脑星人的个人博客，基于 Hugo 和 nostyleplease 主题构建。"
+
+  [[entries.entries]]
+  title = "施工中……🚧"
+
+[[entries]]
+title = "文章"
+
+  [entries.post_list]
+  section = "posts"
+  limit = 5
+  show_more = true
+  show_more_text = "查看全部…"
+  show_more_url = "posts"
+
+# [[entries]]
+# title = "全部分类"
+
+#   [entries.post_list]
+#   section = "posts"
+#   show_more = true
+#   show_more_text = "See more posts..."
+#   show_more_url = "posts"
+
+[[entries]]
+title = "链接"
+
+  [[entries.entries]]
+  title = "RSS"
+  url = "index.xml"
+
+  [[entries.entries]]
+  title = "电脑星人的…"
+
+    [[entries.entries.entries]]
+    title = "GitHub"
+    url = "https://github.com/imkero"
+
+  [[entries.entries]]
+  title = "友情链接"
+  url = "friends"
+
+# [[entries]]
+# title = "PRO TIP"
+# entries = [
+#    { title = "to edit this menu, edit data/menu.toml file" }
+#   ]
