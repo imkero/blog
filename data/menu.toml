@@ -2,7 +2,7 @@
 title = "简介"
 
   [[entries.entries]]
-  title = "这里是电脑星人的个人博客，基于 Hugo 和 nostyleplease 主题构建。"
+  title = "这里是电脑星人的个人博客，基于 <a href=\"https://gohugo.io/\" target=\"_blank\">Hugo</a> 和 <a href=\"https://github.com/Masellum/hugo-theme-nostyleplease\" target=\"_blank\">nostyleplease</a> 主题构建。"
 
   [[entries.entries]]
   title = "施工中……🚧"
