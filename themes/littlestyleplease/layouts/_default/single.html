@@ -1,9 +1,8 @@
 {{ define "main" }}
-{{ partial "back_link.html" .}}
 
 <article>
-    <div class="post-meta">
-        <span><a class="post-meta-home-link" href="{{ "/" | relURL }}">{{ $.Site.Title }}</a></span>
+    <div class="page-meta">
+        <span><a class="page-meta-link" href="{{ "/" | relURL }}">{{ $.Site.Title }}</a></span>
         <time datetime="{{ .Date }}">
             {{ .Date | time.Format site.Params.theme_config.date_format }}
         </time>
