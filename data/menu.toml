@@ -4,9 +4,6 @@ title = "简介"
   [[entries.entries]]
   title = "这里是电脑星人的个人博客，基于 <a href=\"https://gohugo.io/\" target=\"_blank\">Hugo</a> 和 <a href=\"https://github.com/Masellum/hugo-theme-nostyleplease\" target=\"_blank\">nostyleplease</a> 主题构建。"
 
-  [[entries.entries]]
-  title = "施工中……🚧"
-
 [[entries]]
 title = "文章"
 
@@ -15,16 +12,19 @@ title = "文章"
   limit = 5
   show_more = true
   show_more_text = "查看全部…"
-  show_more_url = "posts"
+  show_more_url = "/posts/"
 
-# [[entries]]
-# title = "全部分类"
+[[entries]]
+title = "Coming soon"
 
-#   [entries.post_list]
-#   section = "posts"
-#   show_more = true
-#   show_more_text = "See more posts..."
-#   show_more_url = "posts"
+  [[entries.entries]]
+  title = "笔记 / 我的米家场景自动化方案"
+
+  [[entries.entries]]
+  title = "笔记 / 米家自动化极客版漫谈"
+
+  [[entries.entries]]
+  title = "笔记 / 解决 Windows 远程桌面不能用微软账户密码登录的问题"
 
 [[entries]]
 title = "链接"
@@ -42,10 +42,4 @@ title = "链接"
 
   [[entries.entries]]
   title = "友情链接"
-  url = "friends"
-
-# [[entries]]
-# title = "PRO TIP"
-# entries = [
-#    { title = "to edit this menu, edit data/menu.toml file" }
-#   ]
+  url = "/friends/"
