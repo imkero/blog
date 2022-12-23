@@ -11,11 +11,10 @@
     {{ end }}
   </title>
 
-
   <link rel="shortcut icon" type="image/x-icon" href="{{ $.Site.Params.favicon | relURL }}" />
   {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
   {{ $sass := resources.Get "css/main.scss" }}
-  {{ $style := $sass | resources.ToCSS $options }}
+  {{ $style := $sass | resources.ToCSS $options | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" />
   {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
 </head>
