@@ -18,13 +18,13 @@ title = "文章"
 title = "Coming soon"
 
   [[entries.entries]]
-  title = "笔记 / 我的米家场景自动化方案"
+  title = "<span class=\"secondary\">笔记 /</span> 少即是多：使用 Niagara Launcher 重新编排你的手机桌面"
 
   [[entries.entries]]
-  title = "笔记 / 米家自动化极客版漫谈"
+  title = "<span class=\"secondary\">智能家居 /</span> 有多少人工就有多少智能：聊一聊智能家居的场景自动化"
 
   [[entries.entries]]
-  title = "笔记 / 解决 Windows 远程桌面不能用微软账户密码登录的问题"
+  title = "<span class=\"secondary\">智能家居 /</span> 极客了，但并不完全极客：米家自动化极客版使用体验"
 
 [[entries]]
 title = "链接"
