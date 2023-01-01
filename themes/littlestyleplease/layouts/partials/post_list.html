@@ -28,15 +28,14 @@
     <ul>
         {{- range $post := $posts -}}
         <li>
-            <span class="secondary">{{- ($post.Date | time.Format site.Params.theme_config.date_format) }}</span>
             {{ if (eq $.section "posts") }}
             {{ range ($post.GetTerms "categories") }}
-            <span class="secondary mh-1">/</span>
             <a class="secondary" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-            {{ end }}
-            {{ end }}
             <span class="secondary mh-1">/</span>
+            {{ end }}
+            {{ end }}
             <a href="{{ $post.Permalink }}">{{ $post.Title }}</a>
+            <span class="secondary mh-1"><small>{{- ($post.Date | time.Format site.Params.theme_config.date_format) }}</small></span>
         </li>
         {{ end }}
         {{- if and .show_more $limit_exceeded }}
