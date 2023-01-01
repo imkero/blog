@@ -29,6 +29,11 @@
         {{- range $post := $posts -}}
         <li>
             <span>{{- ($post.Date | time.Format site.Params.theme_config.date_format) }}</span>
+            {{ if (eq $.section "posts") }}
+            {{ range ($post.GetTerms "categories") }}
+            <span class="secondary mh-1">[<a class="secondary" href="{{ .Permalink }}">{{ .LinkTitle }}</a>]</span>
+            {{ end }}
+            {{ end }}
             <a href="{{ $post.Permalink }}">{{ $post.Title }}</a>
         </li>
         {{ end }}

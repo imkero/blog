@@ -517,8 +517,31 @@ a.page-meta-link {
 
   &:after {
     content: '/';
-    margin: 0 4px;
+    color: #ccc;
+    margin-left: 8px;
   }
+
+  & + & {
+    margin-left: 8px;
+  }
+}
+
+.secondary {
+  color: #999;
+}
+
+a.secondary {
+  color: #999;
+
+  &:hover {
+    text-decoration: none;
+    color: #006eff;
+  }
+}
+
+.mh-1 {
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 article h1+blockquote,

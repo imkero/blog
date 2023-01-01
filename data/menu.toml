@@ -34,12 +34,12 @@ title = "链接"
   url = "index.xml"
 
   [[entries.entries]]
+  title = "友情链接"
+  url = "/friends/"
+
+  [[entries.entries]]
   title = "电脑星人的…"
 
     [[entries.entries.entries]]
     title = "GitHub"
     url = "https://github.com/imkero"
-
-  [[entries.entries]]
-  title = "友情链接"
-  url = "/friends/"

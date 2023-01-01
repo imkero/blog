@@ -2,3 +2,6 @@ baseURL = 'https://blog.imkero.net/'
 languageCode = 'zh-CN'
 title = '电脑星人'
 theme = 'littlestyleplease'
+
+[permalinks]
+  categories = "/categories/:slug/"
