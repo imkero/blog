@@ -3,23 +3,22 @@ name: deploy
 on: [push]
 
 jobs:
-  build:
+  buildAndDeploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout master
+      - name: Checkout master
         uses: actions/checkout@v2
         with:
           ref: master
-          submodules: recursive
-      - name: setup hugo
+      - name: Setup hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
           extended: true
-      - name: hugo build
+      - name: Build static files with hugo
         run: hugo --minify
-      - name: upload to COS
+      - name: Upload to COS
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
           args: >-
