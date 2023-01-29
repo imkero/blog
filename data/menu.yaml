@@ -2,12 +2,9 @@ entries:
   - title: 简介
     entries:
       - title: >-
-          关于我：电脑星人 <span title="also known as">a.k.a</span> Kero <span class="secondary mh-1">/</span> 前端开发 <span class="secondary mh-1">/</span> 物联网
+          电脑星人 <span class="secondary" title="also known as">a.k.a</span> Kero
       - title: >-
-          关于博客：基于 
-          <a href="https://gohugo.io/" target="_blank">Hugo</a> 
-          和 <a href="https://github.com/Masellum/hugo-theme-nostyleplease" target="_blank">nostyleplease</a> 
-          主题构建。
+          技术领域：前端开发 <span class="secondary mh-1">/</span> 物联网
   - title: 文章
     post_list:
       section: posts
@@ -45,3 +42,5 @@ entries:
             url: 'https://github.com/imkero'
           - title: 邮箱
             url: 'mailto:kerocat@outlook.com'
+      - title: Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> 
+      - title: 主题：<a href="https://github.com/Masellum/hugo-theme-nostyleplease" target="_blank">nostyleplease</a>
