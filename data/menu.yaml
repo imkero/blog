@@ -2,7 +2,9 @@ entries:
   - title: 简介
     entries:
       - title: >-
-          这里是电脑星人的个人博客，基于 
+          关于我：电脑星人 <span title="also known as">a.k.a</span> Kero <span class="secondary mh-1">/</span> 前端开发 <span class="secondary mh-1">/</span> 物联网
+      - title: >-
+          关于博客：基于 
           <a href="https://gohugo.io/" target="_blank">Hugo</a> 
           和 <a href="https://github.com/Masellum/hugo-theme-nostyleplease" target="_blank">nostyleplease</a> 
           主题构建。
@@ -37,7 +39,9 @@ entries:
         url: index.xml
       - title: 友情链接
         url: /friends/
-      - title: 电脑星人的…
+      - title: 寻找电脑星人的电波
         entries:
           - title: GitHub
             url: 'https://github.com/imkero'
+          - title: 邮箱
+            url: 'mailto:kerocat@outlook.com'
