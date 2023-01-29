@@ -1,8 +1,9 @@
 ---
 title: 利用 API 网关解决前端性能监控上报被拦截的问题
 categories:
-  - 笔记
+  - 技术
 tags:
+  - 前端
   - 前端性能监控
   - API 网关
   - Aegis

@@ -2,7 +2,7 @@
 
 <article>
     <div class="page-meta">
-        <span><a class="page-meta-link" href="{{ "/" | relURL }}">{{ $.Site.Title }}</a></span>
+        <span><a href="{{ "/" | relURL }}">{{ $.Site.Title }}</a></span>
         <time datetime="{{ .Date }}">
             {{ .Date | time.Format site.Params.theme_config.date_format }}
         </time>

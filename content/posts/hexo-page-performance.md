@@ -1,7 +1,7 @@
 ---
 title: 秒开的艺术：Hexo 博客首屏耗时优化实践
 categories:
-  - 前端
+  - 技术
 tags:
   - 腾讯云前端性能优化大赛
   - Hexo

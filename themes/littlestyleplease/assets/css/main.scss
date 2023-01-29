@@ -494,54 +494,35 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: #999;
+  color: #57606a;
 }
 
 a,
 a:visited {
-  color: #006eff;
+  color: #0969da;
 }
 
 a:hover {
   text-decoration: underline;
-  text-decoration-color: #006eff;
-}
-
-a.page-meta-link {
-  color: #999;
-
-  &:hover {
-    text-decoration: none;
-    color: #006eff;
-  }
-
-  &:after {
-    content: '/';
-    color: #ccc;
-    margin-left: 8px;
-  }
-
-  & + & {
-    margin-left: 8px;
-  }
+  text-decoration-color: #0969da;
 }
 
 .secondary {
-  color: #999;
+  color: #57606a;
 }
 
 a.secondary {
-  color: #999;
-
-  &:hover {
-    text-decoration: none;
-    color: #006eff;
-  }
+  text-decoration-color: #57606a;
 }
 
 .mh-1 {
   margin-left: 4px;
   margin-right: 4px;
+}
+
+.mh-2 {
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 article h1+blockquote,

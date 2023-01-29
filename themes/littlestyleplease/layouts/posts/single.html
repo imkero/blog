@@ -3,9 +3,10 @@
 <article>
     <div class="page-meta">
         <span>
-            <a class="page-meta-link" href="{{ "/" | relURL }}">{{ $.Site.Title }}</a>
+            <a href="{{ "/" | relURL }}">{{ $.Site.Title }}</a>
             {{ range (.GetTerms "categories") }}
-            <a class="page-meta-link" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+            <span class="secondary mh-2">/</span>
+            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
             {{ end }}
         </span>
         <time datetime="{{ .Date }}">

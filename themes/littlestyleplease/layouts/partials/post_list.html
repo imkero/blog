@@ -35,7 +35,7 @@
             {{ end }}
             {{ end }}
             <a href="{{ $post.Permalink }}">{{ $post.Title }}</a>
-            <span class="secondary mh-1"><small>{{- ($post.Date | time.Format site.Params.theme_config.date_format) }}</small></span>
+            <div class="secondary post-item-meta-postfix"><small>{{- ($post.Date | time.Format site.Params.theme_config.date_format) }}</small></div>
         </li>
         {{ end }}
         {{- if and .show_more $limit_exceeded }}

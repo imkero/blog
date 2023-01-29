@@ -1,7 +1,7 @@
 ---
 title: 一种简谱的字符串表达方式
 categories:
-  - 笔记
+  - 技术
 tags:
   - 音乐
 date: 2021-11-29

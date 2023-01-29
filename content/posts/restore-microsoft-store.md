@@ -1,7 +1,7 @@
 ---
 title: 找回消失的 Microsoft Store
 categories:
-  - 笔记
+  - 随笔
 tags:
   - Windows
   - 'Microsoft Store'

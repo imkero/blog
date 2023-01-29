@@ -1,4 +1,4 @@
 ---
-title: 笔记
+title: 随笔
 slug: notes
 ---

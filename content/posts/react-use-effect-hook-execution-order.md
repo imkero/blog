@@ -3,8 +3,9 @@ title: "React 函数组件之间 useEffect hook 的执行顺序探究"
 date: 2020-12-27
 slug: react-use-effect-hook-execution-order
 categories:
-- 前端
+- 技术
 tags:
+- 前端
 - React
 - React Hooks
 ---
