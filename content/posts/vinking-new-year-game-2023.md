@@ -16,7 +16,7 @@ date: 2023-01-31
 
 原文链接：[又一个新年游戏](https://vinking.top/76.html)
 
-题目图片：<https://tudingtu.cn/i/2023/01/28/rce26w.png>
+<a href="https://imkero-static-1255707222.file.myqcloud.com/attachments/vinking-new-year-game-2023/encrypted-image.png" target="_blank"><img style="height:320px" src="https://imkero-static-1255707222.file.myqcloud.com/attachments/vinking-new-year-game-2023/encrypted-image.png"></a>
 
 > 信息在这张图片里面，找到加密方式的线索也在图片里面。
 >
