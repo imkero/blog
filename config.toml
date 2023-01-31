@@ -4,4 +4,7 @@ title = '电脑星人'
 theme = 'littlestyleplease'
 
 [permalinks]
-  categories = "/categories/:slug/"
+categories = "/categories/:slug/"
+
+[markup.goldmark.renderer]
+unsafe=true
