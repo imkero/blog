@@ -122,7 +122,7 @@ date: 2023-01-31
 
 这里笔者一开始卡在这个位置了，后来 Vinking 提醒道图片中隐藏的信息是中文的。最终在 Bit Plane Order 为 BGR 的结果中发现了有效的信息。
 
-![](https://imkero-static-1255707222.cos.ap-guangzhou.myqcloud.com/attachments/vinking-new-year-game-2023/lsb-bgr-result.png)
+![](https://imkero-static-1255707222.file.myqcloud.com/attachments/vinking-new-year-game-2023/lsb-bgr-result.png)
 
 1. 点击【Download Extracted Data】
 2. 用文本编辑器打开浏览
