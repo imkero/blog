@@ -11,5 +11,5 @@ date: 2023-02-04
 ## 关于博客
 
 - Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> 
-- title: 主题：<a href="https://github.com/Masellum/hugo-theme-nostyleplease" target="_blank">nostyleplease</a>
+- 主题：<a href="https://github.com/Masellum/hugo-theme-nostyleplease" target="_blank">nostyleplease</a>
 
