@@ -2,7 +2,10 @@
 
 <article>
     <div class="page-meta">
-        <span class="breadcumb"><a href="{{ "/" | relURL }}">{{ $.Site.Title }}</a></span>
+        <span class="breadcumb">
+            <a href="{{ "/" | relURL }}">{{ $.Site.Title }}</a>
+            <span class="secondary mh-2">/</span>
+        </span>
         <time datetime="{{ .Date }}">
             {{ .Date | time.Format site.Params.theme_config.date_format }}
         </time>

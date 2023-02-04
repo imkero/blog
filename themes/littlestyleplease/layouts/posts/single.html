@@ -4,9 +4,10 @@
     <div class="page-meta">
         <span class="breadcumb">
             <a href="{{ "/" | relURL }}">{{ $.Site.Title }}</a>
-            {{ range (.GetTerms "categories") }}
             <span class="secondary mh-2">/</span>
+            {{ range (.GetTerms "categories") }}
             <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+            <span class="secondary mh-2">/</span>
             {{ end }}
         </span>
         <time datetime="{{ .Date }}">

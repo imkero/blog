@@ -1,44 +1,17 @@
 entries:
-  - title: 简介
+  - type: nav
     entries:
-      - title: >-
-          电脑星人 <span class="secondary" title="also known as">a.k.a</span> Kero
-      - title: >-
-          技术领域：前端开发 <span class="secondary mh-1">/</span> 物联网
-  - title: 文章
-    post_list:
+      - title: 文章
+        url: /posts/
+      - title: 链接
+        url: /links/
+      - title: 关于
+        url: /about/
+  - type: h2
+    title: 最新文章
+  - post_list:
       section: posts
       limit: 5
       show_more: true
       show_more_text: 查看全部…
       show_more_url: /posts/
-  - title: Coming soon
-    entries:
-      - title: >-
-          <span class="secondary">随笔</span>
-          <span class="secondary mh-1">/</span>
-          <span class="coming-soon-title">
-            博客漫游指南
-          </span>
-      - title: >-
-          <span class="secondary">随笔</span>
-          <span class="secondary mh-1">/</span>
-          少即是多：使用 Niagara Launcher 重新编排你的手机桌面
-      - title: >-
-          <span class="secondary">技术</span>
-          <span class="secondary mh-1">/</span>
-          有多少人工就有多少智能：聊一聊智能家居的场景自动化
-  - title: 链接
-    entries:
-      - title: RSS
-        url: index.xml
-      - title: 友情链接
-        url: /friends/
-      - title: 寻找电脑星人的电波
-        entries:
-          - title: GitHub
-            url: 'https://github.com/imkero'
-          - title: 邮箱
-            url: 'mailto:kerocat@outlook.com'
-      - title: Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> 
-      - title: 主题：<a href="https://github.com/Masellum/hugo-theme-nostyleplease" target="_blank">nostyleplease</a>
