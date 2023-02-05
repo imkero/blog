@@ -1,0 +1,13 @@
+{{- $pctx := . -}}
+<nav>
+{{- range $item := .collection -}}
+    {{- if $item.title }}
+        {{- with $item.url -}}
+            <a href="{{ $item.url }}">{{ safeHTML $item.title }}</a>
+        {{- else -}}
+            {{ safeHTML $item.title }}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+</nav>
+    

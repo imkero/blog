@@ -6,7 +6,19 @@
         <p>{{ $.Site.Params.description }}</p>
     {{- end -}}
 </header>
+
 {{ .Content }}
-{{ partial "menu_item.html" (dict "context" . "collection" $.Site.Data.menu.entries) }}
+
+{{ partial "nav.html" (dict "collection" $.Site.Data.nav) }}
+
+<h2>最新文章</h2>
+{{ partial "post_list.html" (dict 
+    "context" .
+    "section" "posts"
+    "limit" 5
+    "show_more" true
+    "show_more_text" "全部文章…"
+    "show_more_url" "/posts/"
+) -}}
 
 {{ end }}
