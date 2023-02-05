@@ -4,5 +4,18 @@
 <h1>{{ .Title }}</h1>
 
 {{ .Content }}
-{{ partial "post_list.html" (dict "context" .)}}
+
+{{- if (gt (len .Pages) 0) }}
+    <ul>
+        {{- range $entry := .Pages -}}
+        <li>
+            <a href="{{ $entry.Permalink }}">{{ $entry.Title }}</a>
+            {{- if $entry.Description -}}
+            <span class="secondary mh-2">#</span><span class="secondary">{{ $entry.Description }}</span>
+            {{- end -}}
+        </li>
+        {{ end }}
+    </ul>
+{{ end }}
+
 {{ end }}

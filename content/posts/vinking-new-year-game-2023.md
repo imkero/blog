@@ -1,7 +1,7 @@
 ---
 title: 来自 Vinking 的新年游戏
 categories:
-  - 随笔
+  - 笔记
 tags:
   - CTF
   - 图片隐写

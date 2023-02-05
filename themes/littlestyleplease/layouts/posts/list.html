@@ -3,6 +3,11 @@
 
 <h1>{{ .Title }}</h1>
 
-{{ .Content }}
+{{- $posts := (where site.RegularPages "Section" .Section) -}}
+<blockquote>
+    <p>当前共有 {{ len $posts }} 篇文章</p>
+    {{ .Content }}
+</blockquote>
+
 {{ partial "post_list.html" (dict "context" . "section" .Section)}}
 {{ end }}

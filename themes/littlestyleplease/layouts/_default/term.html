@@ -3,6 +3,11 @@
 
 <h1>{{ .Title }}</h1>
 
+{{- if .Description -}}
+<blockquote>{{ .Description }}</blockquote>
+{{- end -}}
+
 {{ .Content }}
+
 {{ partial "post_list.html" (dict "context" .)}}
 {{ end }}

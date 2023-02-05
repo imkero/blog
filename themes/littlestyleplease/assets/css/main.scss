@@ -631,11 +631,6 @@ article p {
   text-justify: inter-ideograph
 }
 
-.coming-soon-title {
-  display: inline-block;
-  vertical-align: top;
-}
-
 footer {
   margin-top: 3em;
   color: #57606a;
@@ -656,4 +651,10 @@ nav a {
   &:not(:first-child) {
     margin-left: 16px;
   }
+}
+
+.spot-div:before {
+  content: '·';
+  font-style: normal;
+  margin: 0 6px;
 }

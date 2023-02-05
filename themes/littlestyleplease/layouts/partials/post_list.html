@@ -2,16 +2,12 @@
 
 {{- if .section -}}
     {{- $posts = (where site.RegularPages "Section" .section) -}}
+{{- else  if (eq .context.Kind "taxonomy") -}}
+    {{- $posts = .context.Pages -}}
+{{- else if (eq .context.Kind "term") -}}
+    {{- $posts = .context.Data.Pages -}}
 {{- else -}}
-    {{- if (eq .context.Kind "taxonomy") -}}
-        {{- $posts = .context.Pages -}}
-    {{- else -}}
-        {{- if (eq .context.Kind "term") -}}
-            {{- $posts = .context.Data.Pages -}}
-	{{- else -}}
-            {{- $posts = site.RegularPages }}
-	{{- end -}}
-    {{- end -}}
+    {{- $posts = site.RegularPages }}
 {{- end -}}
 
 {{- $limit_exceeded:= "" -}}
@@ -25,6 +21,7 @@
     {{- if .limit }}
         {{ $posts = (first .limit $posts ) }}
     {{ end }}
+
     <ul>
         {{- range $post := $posts -}}
         <li>
