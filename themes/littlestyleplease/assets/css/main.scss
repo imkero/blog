@@ -658,3 +658,14 @@ nav a {
   font-style: normal;
   margin: 0 6px;
 }
+
+.site-title {
+  font-family: 'Noto Serif SC IMKERO Subset', 'Noto Serif SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 700;
+  font-size: 2.5em;
+}
+
+@font-face {
+  font-family: 'Noto Serif SC IMKERO Subset';
+  src: local("Noto Serif SC"), url("../font/title.woff2") format("woff2");
+}
