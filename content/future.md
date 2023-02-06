@@ -3,7 +3,7 @@ title: 未来
 date: 2023-02-05
 ---
 
-> from \_\_future\_\_ import * 
+> <span class="monospace">from \_\_future\_\_ import *</span>
 
 ## 计划撰写的文章
 
