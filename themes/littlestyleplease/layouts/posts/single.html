@@ -20,6 +20,13 @@
     {{ .Content }}
 </article>
 
+<hr>
+
+<div class="comments-container">
+    <h2>评论</h2>
+    <div id="comments"></div>
+</div>
+
 {{- partial "comment" . -}}
 
 {{ end }}

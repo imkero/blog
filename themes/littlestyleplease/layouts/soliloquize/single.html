@@ -6,22 +6,25 @@
             <a href="{{ "/" | relURL }}">{{ $.Site.Title }}</a>
             <span class="secondary mh-2">/</span>
         </span>
-        <time datetime="{{ .Date }}">
-            {{ .Date | time.Format site.Params.theme_config.date_format }}
-        </time>
     </div>
 
     <h1>{{ .Title }}</h1>
 
     {{ .Content }}
+
+    <div id="imkero-admin"></div>
+    <div id="comments"></div>
 </article>
 
-<hr>
+<style>
+#imkero-admin:not(:target) + #comments > .atk-main-editor {
+  display: none;
+}
 
-<div class="comments-container">
-    <h2>评论</h2>
-    <div id="comments"></div>
-</div>
+#imkero-admin:not(:target) + #comments .atk-list-header {
+    display: none;
+}
+</style>
 
 {{- partial "comment" . -}}
 
