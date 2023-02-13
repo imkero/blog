@@ -1,0 +1,22 @@
+<link href="https://unpkg.com/artalk@2.4.4/dist/Artalk.css" rel="stylesheet">
+<script src="https://unpkg.com/artalk@2.4.4/dist/Artalk.js"></script>
+
+<hr>
+
+<div class="comments-container">
+    <h2>评论</h2>
+    <div id="comments"></div>
+</div>
+
+{{ $url := urls.Parse .Permalink }}
+
+<script>
+  new Artalk({
+    el:        '#comments',
+    pageKey:   '{{ $url.Path }}',
+    pageTitle: '{{ .Title }}',
+    server:    '{{ $.Site.Params.artalk.server }}',
+    site:      '{{ $.Site.Params.artalk.site }}',
+    // ...你的其他配置
+  })
+</script>
