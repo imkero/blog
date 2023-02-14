@@ -5,11 +5,13 @@
 
 <script>
   new Artalk({
-    el:        '#comments',
-    pageKey:   '{{ $url.Path }}',
+    el: '#comments',
+    pageKey: '{{ $url.Path }}',
     pageTitle: '{{ .Title }}',
-    server:    '{{ $.Site.Params.artalk.server }}',
-    site:      '{{ $.Site.Params.artalk.site }}',
-    // ...你的其他配置
-  })
+    server: '{{ $.Site.Params.artalk.server }}',
+    site: '{{ $.Site.Params.artalk.site }}',
+    avatarURLBuilder: function (comment) {
+      return 'https://gravatar.loli.net/avatar/' + comment.email_encrypted + '?s=100';
+    },
+  });
 </script>
