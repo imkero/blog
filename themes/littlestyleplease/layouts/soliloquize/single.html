@@ -8,7 +8,16 @@
         </span>
     </div>
 
-    <h1>{{ .Title }}</h1>
+    <script>
+        window.soliloquizeTitleClickCnt = 0;
+        window.soliloquizeTitleClick = function () {
+            if (++window.soliloquizeTitleClickCnt >= 5) {
+                window.soliloquizeTitleClickCnt = 0;
+                location.hash = '#imkero-admin';
+            }
+        };
+    </script>
+    <h1 onclick="soliloquizeTitleClick()">{{ .Title }}</h1>
 
     {{ .Content }}
 
@@ -21,8 +30,22 @@
   display: none;
 }
 
-#imkero-admin:not(:target) + #comments .atk-list-header {
-    display: none;
+#comments .atk-comment-count {
+    font-size: 0;
+}
+
+#comments .atk-comment-count > * {
+    font-size: 15px;
+}
+
+#comments .atk-comment-count-num::after {
+    content: '条独白';
+    font-size: 15px;
+    margin-left: 4px;
+}
+
+#comments .atk-arrow-down-icon {
+    margin-top: -8px !important;
 }
 </style>
 

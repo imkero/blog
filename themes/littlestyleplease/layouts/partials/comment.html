@@ -1,9 +1,9 @@
 <link href="https://unpkg.com/artalk@2.4.4/dist/Artalk.css" rel="stylesheet">
-<script src="https://unpkg.com/artalk@2.4.4/dist/Artalk.js"></script>
 
 {{ $url := urls.Parse .Permalink }}
 
 <script>
+window.initArtalk = function () {
   new Artalk({
     el: '#comments',
     pageKey: '{{ $url.Path }}',
@@ -14,4 +14,8 @@
       return 'https://gravatar.loli.net/avatar/' + comment.email_encrypted + '?s=100';
     },
   });
+};
 </script>
+
+<script src="https://unpkg.com/artalk@2.4.4/dist/Artalk.js" async onload="initArtalk()"></script>
+
