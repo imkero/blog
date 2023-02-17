@@ -688,3 +688,25 @@ h1, h2, h4, h4, h5, h6 {
 .atk-copyright {
   text-align: right;
 }
+
+.artalk>.atk-list>.atk-list-header, .artalk>.atk-list>.atk-list-body {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.atk-main-editor>.atk-header {
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--at-color-border);
+  padding: 10px 14px !important;
+  row-gap: 8px;
+
+  & > input {
+    flex-grow: 1 !important;
+    flex-shrink: 0 !important;
+    flex-basis: 120px !important;
+  }
+}
+
+.atk-plug-btn[data-plug-name="gt"] {
+  display: none;
+}
