@@ -51,6 +51,18 @@
 #comments span[data-action="admin-close-comment"] {
     display: none;
 }
+
+.atk-list-comments-wrap > .atk-comment-wrap:not(:first-child) {
+    margin-top: 24px;
+}
+
+.atk-list-comments-wrap > .atk-comment-wrap > .atk-comment > .atk-main > .atk-header > .atk-badge-wrap {
+    display: none;
+}
+
+.atk-list-comments-wrap > .atk-comment-wrap > .atk-comment > .atk-main > .atk-header > .atk-nick {
+    display: none;
+}
 </style>
 
 {{- partial "comment" . -}}
