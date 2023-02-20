@@ -17,7 +17,7 @@
   {{ $style := $sass | resources.ToCSS $options | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" />
 
-  <link rel="stylesheet" href="https://google-fonts-1255707222.file.myqcloud.com/css/noto-serif-sc-400-700.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://google-fonts-1255707222.file.myqcloud.com/css/blog-imkero-net-1.css" media="print" onload="this.media='all'">
 
   {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
 
