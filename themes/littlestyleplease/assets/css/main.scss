@@ -428,17 +428,20 @@ li {
   padding: 4rem 2rem;
 }
 
-hr {
+hr.slash {
+  margin: 0;
+  padding: 3rem 0;
+  font-family: monospace;
   text-align: center;
   border: 0;
   color: #57606a;
 
   &:before {
-    content: '/////';
+    content: '///// ';
   }
 
   &:after {
-    content: attr(data-content) '/////';
+    content: attr(data-content) ' /////';
   }
 }
 
@@ -677,12 +680,6 @@ h1, h2, h4, h4, h5, h6 {
 
 .atk-pagination-wrap:has(.atk-btn-prev.atk-disabled):has(.atk-btn-next.atk-disabled) {
   display: none;
-}
-
-.comments-delimeter {
-  margin: 0;
-  padding: 3rem 0;
-  font-family: monospace;
 }
 
 .atk-copyright {
