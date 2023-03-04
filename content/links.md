@@ -16,4 +16,4 @@ date: 2023-02-13T19:00:00+08:00
 ## 本站链接信息
 
 - 名称：电脑星人
-- URL：<https://blog.imkero.net/>
+- URL：<https://kero.blog/>

@@ -1,4 +1,4 @@
-baseURL = 'https://blog.imkero.net/'
+baseURL = 'https://kero.blog/'
 languageCode = 'zh-CN'
 title = '电脑星人'
 theme = 'littlestyleplease'
