@@ -17,7 +17,11 @@
   {{ $style := $sass | resources.ToCSS $options | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" />
 
+  {{ if (os.Getenv "HUGO_BUILD_OVERSEA") }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  {{ else }}
   <link rel="stylesheet" href="https://google-fonts-1255707222.file.myqcloud.com/css/blog-imkero-net-1.css" media="print" onload="this.media='all'">
+  {{ end }}
 
   {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
 

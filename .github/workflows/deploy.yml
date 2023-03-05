@@ -27,3 +27,29 @@ jobs:
           secret_key: ${{ secrets.COS_SECRET_KEY }}
           bucket: ${{ secrets.COS_BUCKET }}
           region: ${{ secrets.COS_REGION }}
+  buildAndDeployForOversea:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_BUILD_OVERSEA: 1
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - name: Build static files with hugo
+
+        run: hugo --minify
+      - name: Upload to COS
+        uses: zkqiang/tencent-cos-action@v0.1.0
+        with:
+          args: >-
+            delete -r -f / && upload -r ./public/ / -H "{'Cache-Control':'max-age=900'}"
+          secret_id: ${{ secrets.COS_SECRET_ID }}
+          secret_key: ${{ secrets.COS_SECRET_KEY }}
+          bucket: ${{ secrets.COS_BUCKET_OVERSEA }}
+          region: ${{ secrets.COS_REGION_OVERSEA }}
