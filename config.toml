@@ -10,5 +10,5 @@ categories = "/categories/:slug/"
 unsafe = true
 
 [params.artalk]
-server = 'https://service-3bralnc4-1255707222.gz.apigw.tencentcs.com/release/'
+server = 'https://service-cvddowek-1255707222.gz.apigw.tencentcs.com/release/'
 site = '电脑星人的博客'

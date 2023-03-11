@@ -11,7 +11,7 @@ window.initArtalk = function () {
     server: '{{ $.Site.Params.artalk.server }}',
     site: '{{ $.Site.Params.artalk.site }}',
     avatarURLBuilder: function (comment) {
-      return 'https://gravatar.loli.net/avatar/' + comment.email_encrypted + '?s=100';
+      return 'https://gravatar.loli.net/avatar/' + comment.email_encrypted + '?s=100&d=mp';
     },
   });
 };
