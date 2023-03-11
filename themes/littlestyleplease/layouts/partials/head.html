@@ -11,11 +11,15 @@
     {{ end }}
   </title>
 
-  <link rel="shortcut icon" type="image/x-icon" href="{{ $.Site.Params.favicon | relURL }}" />
+  {{ if $.Site.Params.favicon }}
+  <link rel="shortcut icon" type="image/x-icon" href="{{ $.Site.Params.favicon }}" />
+  {{ end }}
+
   {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
   {{ $sass := resources.Get "css/main.scss" }}
   {{ $style := $sass | resources.ToCSS $options | resources.Fingerprint }}
-  <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" />
+  {{ $cdnPrefix := (os.Getenv "HUGO_CDN_PREFIX") }}
+  <link rel="stylesheet" href="{{ $cdnPrefix }}{{ $style.Permalink | relURL }}" />
 
   {{ if (os.Getenv "HUGO_BUILD_OVERSEA") }}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" media="print" onload="this.media='all'">
