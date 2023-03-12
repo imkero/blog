@@ -28,11 +28,20 @@ jobs:
           secret_key: ${{ secrets.COS_SECRET_KEY }}
           bucket: ${{ secrets.COS_BUCKET }}
           region: ${{ secrets.COS_REGION }}
-      - name: Upload to COS
+      - name: Upload CSS to CDN
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
           args: >-
             upload -r ./public/css /blog-assets/css
+          secret_id: ${{ secrets.COS_SECRET_ID }}
+          secret_key: ${{ secrets.COS_SECRET_KEY }}
+          bucket: ${{ secrets.COS_BUCKET2 }}
+          region: ${{ secrets.COS_REGION2 }}
+      - name: Upload JS to CDN
+        uses: zkqiang/tencent-cos-action@v0.1.0
+        with:
+          args: >-
+            upload -r ./public/js /blog-assets/js
           secret_id: ${{ secrets.COS_SECRET_ID }}
           secret_key: ${{ secrets.COS_SECRET_KEY }}
           bucket: ${{ secrets.COS_BUCKET2 }}
