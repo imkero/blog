@@ -9,6 +9,41 @@ window.artalkResourceCb = function (type) {
   window.artalkCssReady = window.artalkCssReady || type === 'css';
   window.artalkJsReady = window.artalkJsReady || type === 'js';
   if (window.artalkCssReady && window.artalkJsReady) {
+    // 云音乐外链播放器
+    Artalk.use((ctx) => {
+      const LOADED_ATTR = 'atk-player-loaded';
+      ctx.on('list-loaded', () => {
+
+        ctx.getCommentList().forEach(comment => {
+          const $content = comment.getRender().$content
+          $content.querySelectorAll(
+            `code:not([${LOADED_ATTR}])`
+          ).forEach($el => {
+            const text = $el.innerText.trim();
+            const match = text.match(/^播放器[：:]\s*(.*)$/);
+            if (!match) return;
+
+            let url;
+            try {
+              url = new URL(match[1]);
+            } catch (error) {
+              console.error('[artalk.player] parse url fail', text, error);
+              return;
+            }
+
+            const musicId = url.searchParams.get('id');
+            $el.setAttribute(LOADED_ATTR, '') // 初始化标记
+
+            const iframe = document.createElement('iframe');
+            iframe.style.cssText = 'border:none;margin:0;width:400px;height:86px';
+            iframe.setAttribute('src', '//music.163.com/outchain/player?type=2&id=' + musicId + '&auto=0&height=66');
+
+            $el.replaceWith(iframe);
+          });
+        })
+      })
+    });
+
     new Artalk({
       el: '#comments',
       pageKey: '{{ .Permalink | relURL }}',
