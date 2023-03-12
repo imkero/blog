@@ -16,26 +16,32 @@
   {{ end }}
 
   {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
-  {{ $sass := resources.Get "css/main.scss" }}
-  {{ $style := $sass | resources.ToCSS $options | resources.Fingerprint }}
-  {{ $cdnPrefix := (os.Getenv "HUGO_CDN_PREFIX") }}
-  <link rel="stylesheet" href="{{ $cdnPrefix }}{{ $style.Permalink | relURL }}" />
+  {{ $mainScss := resources.Get "css/main.scss" }}
+  {{ $mainStyle := $mainScss | resources.ToCSS $options | resources.Fingerprint }}
+  {{ $cdnPrefix := os.Getenv "HUGO_CDN_PREFIX" }}
+  <link rel="stylesheet" href="{{ $cdnPrefix }}{{ $mainStyle.Permalink | relURL }}" />
 
-  {{ if (os.Getenv "HUGO_BUILD_OVERSEA") }}
+  {{ if (eq (os.Getenv "HUGO_BUILD_OVERSEA") "1") }}
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" media="print" onload="this.media='all'">
   {{ else }}
-  <link rel="stylesheet" href="https://google-fonts-1255707222.file.myqcloud.com/css/blog-imkero-net-1.css" media="print" onload="this.media='all'">
+  {{ $fontStyle := resources.Get "css/font.css" | resources.Fingerprint }}
+  <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
+  <link rel="stylesheet" href="{{ $cdnPrefix }}{{ $fontStyle.Permalink | relURL }}" media="print" onload="this.media='all'">
   {{ end }}
+
+  <link rel="preconnect" href="{{ $.Site.Params.umami.hostUrl }}">
 
   {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
 
   {{ if hugo.IsProduction }}
-  <script src="https://cdnjs.loli.net/ajax/libs/quicklink/2.3.0/quicklink.umd.min.js" defer></script>
+  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" defer></script>
   <script>
     window.addEventListener('load', function () {
       quicklink.listen({
         ignores: [
           /\.xml$/,
+          function (url) { return url === location.href }
         ]
       });
     });

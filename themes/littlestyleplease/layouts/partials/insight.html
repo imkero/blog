@@ -1,6 +1,8 @@
+{{ $cdnPrefix := os.Getenv "HUGO_CDN_PREFIX" }}
+{{ $umamiJs := resources.Get "js/viewCount.js" | resources.Fingerprint }}
+{{ $globalSite := site }}
 <script
-  async
   defer
-  data-website-id="41435ecc-7d57-4f52-9076-1479f3e17155"
-  data-host-url="https://service-ngoos1nm-1255707222.gz.apigw.tencentcs.com"
-  src="https://imkero-static-1255707222.file.myqcloud.com/js/ummmm.js"></script>
+  data-website-id="{{ $globalSite.Params.umami.websiteId }}"
+  data-host-url="{{ $globalSite.Params.umami.hostUrl }}"
+  src="{{ $cdnPrefix }}{{ $umamiJs.Permalink | relURL }}"></script>

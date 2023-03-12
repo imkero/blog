@@ -1,21 +1,27 @@
-<link href="https://unpkg.com/artalk@2.4.4/dist/Artalk.css" rel="stylesheet">
-
-{{ $url := urls.Parse .Permalink }}
+<link href="https://unpkg.com/artalk@2.4.4/dist/Artalk.css" rel="stylesheet" media="print" onload="this.media='all';artalkResourceCb('css')">
+<link rel="preconnect" href="{{ $.Site.Params.artalk.server }}">
 
 <script>
-window.initArtalk = function () {
-  new Artalk({
-    el: '#comments',
-    pageKey: '{{ $url.Path }}',
-    pageTitle: '{{ .Title }}',
-    server: '{{ $.Site.Params.artalk.server }}',
-    site: '{{ $.Site.Params.artalk.site }}',
-    avatarURLBuilder: function (comment) {
-      return 'https://gravatar.loli.net/avatar/' + comment.email_encrypted + '?s=100&d=mp';
-    },
-  });
+window.artalkCssReady = false;
+window.artalkJsReady = false;
+
+window.artalkResourceCb = function (type) {
+  window.artalkCssReady = window.artalkCssReady || type === 'css';
+  window.artalkJsReady = window.artalkJsReady || type === 'js';
+  if (window.artalkCssReady && window.artalkJsReady) {
+    new Artalk({
+      el: '#comments',
+      pageKey: '{{ .Permalink | relURL }}',
+      pageTitle: '{{ .Title }}',
+      server: '{{ $.Site.Params.artalk.server }}',
+      site: '{{ $.Site.Params.artalk.site }}',
+      avatarURLBuilder: function (comment) {
+        return 'https://gravatar.loli.net/avatar/' + comment.email_encrypted + '?s=100&d=mp';
+      },
+    });
+  }
 };
 </script>
 
-<script src="https://unpkg.com/artalk@2.4.4/dist/Artalk.js" async onload="initArtalk()"></script>
+<script src="https://unpkg.com/artalk@2.4.4/dist/Artalk.js" async onload="artalkResourceCb('js')"></script>
 
