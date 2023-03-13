@@ -12,36 +12,51 @@ window.artalkResourceCb = function (type) {
     // 云音乐外链播放器
     Artalk.use((ctx) => {
       const LOADED_ATTR = 'atk-player-loaded';
-      ctx.on('list-loaded', () => {
 
+      const applyNeteaseOutchainPlayer = () => {
         ctx.getCommentList().forEach(comment => {
           const $content = comment.getRender().$content
           $content.querySelectorAll(
             `code:not([${LOADED_ATTR}])`
           ).forEach($el => {
             const text = $el.innerText.trim();
-            const match = text.match(/^播放器[：:]\s*(.*)$/);
+            const match = text.match(/^云音乐[：:]\s*(.*)$/);
             if (!match) return;
 
-            let url;
-            try {
-              url = new URL(match[1]);
-            } catch (error) {
-              console.error('[artalk.player] parse url fail', text, error);
-              return;
+            let musicId;
+            if (match[1].match(/^\d+$/)) {
+              musicId = match[1];
+            } else {
+              let url;
+              try {
+                url = new URL(match[1]);
+              } catch (error) {
+                console.error('[artalk.player] parse url fail', text, error);
+                return;
+              }
+              musicId = url.searchParams.get('id');
             }
 
-            const musicId = url.searchParams.get('id');
+            if (!musicId) return;
+            
             $el.setAttribute(LOADED_ATTR, '') // 初始化标记
 
             const iframe = document.createElement('iframe');
-            iframe.style.cssText = 'border:none;margin:0;width:400px;height:86px';
+            iframe.style.cssText = 'border:none;margin:0;width:400px;height:86px;max-width:100%';
             iframe.setAttribute('src', '//music.163.com/outchain/player?type=2&id=' + musicId + '&auto=0&height=66');
 
             $el.replaceWith(iframe);
           });
-        })
-      })
+        });
+      };
+
+      ctx.on('list-loaded', () => {
+        applyNeteaseOutchainPlayer();
+      });
+
+      ctx.on('editor-submitted', () => {
+        applyNeteaseOutchainPlayer();
+      });
     });
 
     new Artalk({
