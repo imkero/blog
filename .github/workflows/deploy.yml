@@ -1,6 +1,9 @@
-name: deploy
+name: Deploy
 
-on: [push]
+on:
+  push:
+    branches:
+      - master  # Set a branch name to trigger deployment
 
 jobs:
   buildAndDeploy:
@@ -9,17 +12,18 @@ jobs:
       HUGO_CDN_PREFIX: 'https://imkero-static-1255707222.file.myqcloud.com/blog-assets'
     steps:
       - name: Checkout master
-        uses: actions/checkout@v2
-        with:
-          ref: master
-      - name: Setup hugo
+        uses: actions/checkout@v3
+
+      - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: '0.108.0'
           extended: true
-      - name: Build static files with hugo
+
+      - name: Build
         run: hugo --minify
-      - name: Upload to COS
+
+      - name: Deploy to COS
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
           args: >-
@@ -28,7 +32,8 @@ jobs:
           secret_key: ${{ secrets.COS_SECRET_KEY }}
           bucket: ${{ secrets.COS_BUCKET }}
           region: ${{ secrets.COS_REGION }}
-      - name: Upload CSS to CDN
+
+      - name: Deploy to CDN (css files)
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
           args: >-
@@ -37,7 +42,8 @@ jobs:
           secret_key: ${{ secrets.COS_SECRET_KEY }}
           bucket: ${{ secrets.COS_BUCKET2 }}
           region: ${{ secrets.COS_REGION2 }}
-      - name: Upload JS to CDN
+
+      - name: Upload to CDN (js files)
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
           args: >-
