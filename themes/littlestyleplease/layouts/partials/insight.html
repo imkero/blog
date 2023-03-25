@@ -2,7 +2,7 @@
 {{ $umamiJs := resources.Get "js/viewCount.js" | resources.Fingerprint }}
 {{ $globalSite := site }}
 <script
-  defer
+  async
   data-website-id="{{ $globalSite.Params.umami.websiteId }}"
   data-host-url="{{ $globalSite.Params.umami.hostUrl }}"
   src="{{ $cdnPrefix }}{{ $umamiJs.Permalink | relURL }}"></script>

@@ -1,0 +1,23 @@
+{{ if hugo.IsProduction }}
+<script>
+  window.initQuicklink = function () {
+    const installQuicklink = function () {
+      quicklink.listen({
+        ignores: [
+          /\.xml$/,
+          function (url) { return url === location.href }
+        ]
+      });
+    };
+
+    if (document.readyState === 'complete') {
+      installQuicklink();
+    } else {
+      window.addEventListener('load', function () {
+        installQuicklink();
+      });
+    }
+  };  
+</script>
+<script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" async onload="initQuicklink()"></script>
+{{ end }}

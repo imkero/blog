@@ -9,12 +9,13 @@
                 {{- partial "footer.html" . -}}
             </div>
         </main>
-    </body>
-    {{- if .Params.custom_js -}}
-        {{- range .Params.custom_js -}}
-            {{ $js := resources.Get (print "js/" . ".js") }}
-            <script src="{{ $js.RelPermalink }}"></script>
+        {{- if .Params.custom_js -}}
+            {{- range .Params.custom_js -}}
+                {{ $js := resources.Get (print "js/" . ".js") }}
+                <script src="{{ $js.RelPermalink }}"></script>
+            {{- end -}}
         {{- end -}}
-    {{- end -}}
-    {{ partial "insight.html" }}
+        {{ partial "quicklink.html" }}
+        {{ partial "insight.html" }}
+    </body>
 </html>

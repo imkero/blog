@@ -33,18 +33,4 @@
   <link rel="preconnect" href="{{ $.Site.Params.umami.hostUrl }}">
 
   {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
-
-  {{ if hugo.IsProduction }}
-  <script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" defer></script>
-  <script>
-    window.addEventListener('load', function () {
-      quicklink.listen({
-        ignores: [
-          /\.xml$/,
-          function (url) { return url === location.href }
-        ]
-      });
-    });
-  </script>
-  {{ end }}
 </head>
