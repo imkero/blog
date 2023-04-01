@@ -1,77 +1,94 @@
 <link rel="preconnect" href="{{ $.Site.Params.artalk.server }}">
 
 <script>
-window.artalkCssReady = false;
-window.artalkJsReady = false;
+  window.artalkCssReady = false;
+  window.artalkJsReady = false;
 
-window.artalkResourceCb = function (type) {
-  window.artalkCssReady = window.artalkCssReady || type === 'css';
-  window.artalkJsReady = window.artalkJsReady || type === 'js';
-  if (window.artalkCssReady && window.artalkJsReady) {
-    // 云音乐外链播放器
-    Artalk.use((ctx) => {
-      const LOADED_ATTR = 'atk-player-loaded';
+  window.artalkResourceCb = function (type) {
+    window.artalkCssReady = window.artalkCssReady || type === 'css';
+    window.artalkJsReady = window.artalkJsReady || type === 'js';
+    if (window.artalkCssReady && window.artalkJsReady) {
+      const createNeteasePlayer = function(text) {
+        const match = text.match(/^云音乐[：:]\s*(.*)$/);
+        if (!match) return null;
 
-      const applyNeteaseOutchainPlayer = () => {
-        ctx.getCommentList().forEach(comment => {
-          const $content = comment.getRender().$content
-          $content.querySelectorAll(
-            `code:not([${LOADED_ATTR}])`
-          ).forEach($el => {
-            const text = $el.innerText.trim();
-            const match = text.match(/^云音乐[：:]\s*(.*)$/);
-            if (!match) return;
+        let musicId;
+        if (match[1].match(/^\d+$/)) {
+          musicId = match[1];
+        } else {
+          let url;
+          try {
+            url = new URL(match[1]);
+          } catch (error) {
+            console.error('[artalk.player] parse url fail', text, error);
+            return;
+          }
+          musicId = url.searchParams.get('id');
+        }
 
-            let musicId;
-            if (match[1].match(/^\d+$/)) {
-              musicId = match[1];
-            } else {
-              let url;
-              try {
-                url = new URL(match[1]);
-              } catch (error) {
-                console.error('[artalk.player] parse url fail', text, error);
-                return;
-              }
-              musicId = url.searchParams.get('id');
-            }
+        if (!musicId) return;
 
-            if (!musicId) return;
-            
-            $el.setAttribute(LOADED_ATTR, '') // 初始化标记
+        const iframe = document.createElement('iframe');
+        iframe.style.cssText = 'border:none;margin:0;width:400px;height:86px;max-width:100%';
+        iframe.setAttribute('src', '//music.163.com/outchain/player?type=2&id=' + musicId + '&auto=0&height=66');
 
-            const iframe = document.createElement('iframe');
-            iframe.style.cssText = 'border:none;margin:0;width:400px;height:86px;max-width:100%';
-            iframe.setAttribute('src', '//music.163.com/outchain/player?type=2&id=' + musicId + '&auto=0&height=66');
-
-            $el.replaceWith(iframe);
-          });
-        });
+        return iframe;
       };
 
-      ctx.on('list-loaded', () => {
-        applyNeteaseOutchainPlayer();
+      const createAudioPlayer = function (text) {
+        const match = text.match(/^audio:\s*(.*)$/);
+        if (!match) return null;
+
+        const audio = document.createElement('audio');
+        audio.setAttribute('src', match[1]);
+        audio.setAttribute('controls', '');
+        audio.setAttribute('preload', 'none');
+
+        return audio;
+      };
+
+      Artalk.use((ctx) => {
+        const LOADED_ATTR = 'atk-player-loaded';
+
+        const insertPlayers = () => {
+          ctx.getCommentList().forEach(comment => {
+            const $content = comment.getRender().$content;
+            $content.querySelectorAll(
+              `code:not([${LOADED_ATTR}])`
+            ).forEach($el => {
+              const text = $el.innerText.trim();
+              const playerEl = createNeteasePlayer(text) || createAudioPlayer(text);
+              if (playerEl) {
+                $el.setAttribute(LOADED_ATTR, '');
+                $el.replaceWith(playerEl);
+              };
+            });
+          });
+        };
+
+        ctx.on('list-loaded', () => {
+          insertPlayers();
+        });
+
+        ctx.on('editor-submitted', () => {
+          insertPlayers();
+        });
       });
 
-      ctx.on('editor-submitted', () => {
-        applyNeteaseOutchainPlayer();
+      new Artalk({
+        el: '#comments',
+        pageKey: '{{ .Permalink | relURL }}',
+        pageTitle: '{{ .Title }}',
+        server: '{{ $.Site.Params.artalk.server }}',
+        site: '{{ $.Site.Params.artalk.site }}',
+        avatarURLBuilder: function (comment) {
+          return 'https://gravatar.loli.net/avatar/' + comment.email_encrypted + '?s=100&d=mp';
+        },
       });
-    });
-
-    new Artalk({
-      el: '#comments',
-      pageKey: '{{ .Permalink | relURL }}',
-      pageTitle: '{{ .Title }}',
-      server: '{{ $.Site.Params.artalk.server }}',
-      site: '{{ $.Site.Params.artalk.site }}',
-      avatarURLBuilder: function (comment) {
-        return 'https://gravatar.loli.net/avatar/' + comment.email_encrypted + '?s=100&d=mp';
-      },
-    });
-  }
-};
+    }
+  };
 </script>
 
-<link href="https://unpkg.com/artalk@2.4.4/dist/Artalk.css" rel="stylesheet" media="print" onload="this.media='all';artalkResourceCb('css')">
+<link href="https://unpkg.com/artalk@2.4.4/dist/Artalk.css" rel="stylesheet" media="print"
+  onload="this.media='all';artalkResourceCb('css')">
 <script src="https://unpkg.com/artalk@2.4.4/dist/Artalk.js" async onload="artalkResourceCb('js')"></script>
-
