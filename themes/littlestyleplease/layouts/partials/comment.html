@@ -52,6 +52,10 @@
 
         const insertPlayers = () => {
           ctx.getCommentList().forEach(comment => {
+            if (comment.data.user_id !== 1 && comment.data.user_id !== 2) {
+              return;
+            }
+
             const $content = comment.getRender().$content;
             $content.querySelectorAll(
               `code:not([${LOADED_ATTR}])`
