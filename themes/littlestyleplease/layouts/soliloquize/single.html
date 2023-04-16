@@ -8,26 +8,34 @@
         </span>
     </div>
 
-    <script>
-        window.soliloquizeTitleClickCnt = 0;
-        window.soliloquizeTitleClick = function () {
-            if (++window.soliloquizeTitleClickCnt >= 5) {
-                window.soliloquizeTitleClickCnt = 0;
-                location.hash = '#imkero-admin';
-            }
-        };
-    </script>
-    <h1 onclick="soliloquizeTitleClick()">{{ .Title }}</h1>
+    <h1>{{ .Title }}</h1>
 
     {{ .Content }}
 
-    <div id="imkero-admin"></div>
     <div id="comments"></div>
+
+    <script>
+        try {
+            const userJSON = localStorage.getItem('ArtalkUser');
+            if (userJSON) {
+                const user = JSON.parse(userJSON);
+                if (user.isAdmin) {
+                    document.body.classList.add('is-admin');
+                }
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    </script>
 </article>
 
 <style>
-#imkero-admin:not(:target) + #comments > .atk-main-editor {
+#comments > .atk-main-editor {
   display: none;
+}
+
+.is-admin #comments > .atk-main-editor {
+  display: block;
 }
 
 #comments .atk-comment-count {

@@ -1,12 +1,12 @@
 {{ if hugo.IsProduction }}
 
 {{ $cdnPrefix := os.Getenv "HUGO_CDN_PREFIX" }}
-{{ $umamiJs := resources.Get "js/view-count.js" | resources.Fingerprint }}
+{{ $umamiJs := resources.Get "js/pageview.js" | resources.Fingerprint }}
 {{ $globalSite := site }}
+
 <script
   async
   data-website-id="{{ $globalSite.Params.umami.websiteId }}"
   data-host-url="{{ $globalSite.Params.umami.hostUrl }}"
   src="{{ $cdnPrefix }}{{ $umamiJs.Permalink | relURL }}"></script>
-
 {{ end }}

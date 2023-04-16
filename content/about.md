@@ -19,24 +19,23 @@ date: 2023-02-26T18:24:00+08:00
 
 ## 访客统计
 
-- [访客统计](https://service-ngoos1nm-1255707222.gz.apigw.tencentcs.com/share/M0TKuUnd/kero-blog) 基于 [umami](https://github.com/umami-software/umami)
+- [访客统计](https://pageview.kero.blog/share/6p0PPEcw/kero-blog) 基于 [umami](https://github.com/umami-software/umami)
 - PV：<span id="pv-text">-</span>
 - UV：<span id="uv-text">-</span>
 
 <script>
 (function() {
   if (!window.fetch) return;
-  fetch('https://service-ngoos1nm-1255707222.gz.apigw.tencentcs.com/public-stats/kero-blog')
+  fetch('https://pageview.kero.blog/api/share/stats/6p0PPEcw')
     .then((response) => {
       return response.json();
     })
     .then((res) => {
-      if (res.code !== 0) return Promise.reject(new Error('error code = ' + res.code));
-      document.getElementById('pv-text').innerText = String(res.data.pageviews.value);
-      document.getElementById('uv-text').innerText = String(res.data.uniques.value);
+      document.getElementById('pv-text').innerText = String(res.pageviews.value);
+      document.getElementById('uv-text').innerText = String(res.uniques.value);
     })
     .catch((error) => {
-      console.error('[stats] refresh pv fail', error);
+      console.error('[stats] fetch stats fail', error);
     });
 })();
 </script>

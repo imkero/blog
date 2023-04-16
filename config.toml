@@ -14,5 +14,5 @@ server = 'https://service-cvddowek-1255707222.gz.apigw.tencentcs.com/'
 site = '电脑星人的博客'
 
 [params.umami]
-websiteId = '41435ecc-7d57-4f52-9076-1479f3e17155'
-hostUrl = 'https://service-ngoos1nm-1255707222.gz.apigw.tencentcs.com'
+websiteId = '522309c7-a088-4510-b463-cc55efc48534'
+hostUrl = 'https://pageview.kero.blog'
