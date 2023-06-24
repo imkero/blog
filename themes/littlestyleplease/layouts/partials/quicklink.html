@@ -1,26 +1,6 @@
 {{ if hugo.IsProduction }}
 <script>
   window.initQuicklink = function () {
-    let prerenderCount = 0;
-    const enablePrerender = function () {
-      document.querySelectorAll('a').forEach(function (link) {
-        if (link.href.substring(0, 1) === '#') return;
-
-        const url = new URL(link.href, window.location.href);
-        if (url.origin !== window.location.origin) return;
-
-        link.addEventListener('pointerdown', function () {
-          if (prerenderCount < 1) {
-            prerenderCount++;
-            const linkEl = document.createElement('link');
-            linkEl.setAttribute('rel', 'prerender');
-            linkEl.setAttribute('href', url.href);
-            document.head.appendChild(linkEl);
-          }
-        });
-      });
-    };
-
     const installQuicklink = function () {
       quicklink.listen({
         ignores: [
@@ -29,8 +9,6 @@
           function (url) { return url === location.href }
         ],
       });
-
-      enablePrerender();
     };
 
     if (document.readyState === 'complete') {
@@ -42,5 +20,5 @@
     }
   };  
 </script>
-<script src="https://unpkg.com/quicklink@2.3.0/dist/quicklink.umd.js" async onload="initQuicklink()"></script>
+<script src="{{ "/lib/quicklink@2.3.0/quicklink.umd.js" | relURL }}" async onload="initQuicklink()"></script>
 {{ end }}

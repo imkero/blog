@@ -1,4 +1,19 @@
 [[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "max-age=2592000; immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "max-age=2592000; immutable"
+
+[[headers]]
+  for = "/lib/*"
+  [headers.values]
+    Cache-Control = "max-age=2592000; immutable"
+
+[[headers]]
   for = "/*"
   [headers.values]
     Cache-Control = "max-age=900"
