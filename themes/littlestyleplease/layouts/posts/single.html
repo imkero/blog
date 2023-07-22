@@ -6,7 +6,7 @@
             <a href="{{ "/" | relURL }}">{{ $.Site.Title }}</a>
             <span class="secondary mh-2">/</span>
             {{ range (.GetTerms "categories") }}
-            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
             <span class="secondary mh-2">/</span>
             {{ end }}
         </span>
