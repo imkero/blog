@@ -11,6 +11,14 @@
     {{ end }}
   </title>
 
+  <script>
+    if (location.host.toLowerCase() === "kenorizon.cn") {
+        if (document.title === '电脑星人' || document.title.lastIndexOf("- 电脑星人") === document.title.length - "- 电脑星人".length) {
+            document.title = document.title + '的编程技术分享';
+        }
+    }
+  </script>
+
   {{ if $.Site.Params.favicon }}
   <link rel="shortcut icon" type="image/x-icon" href="{{ $.Site.Params.favicon }}" />
   {{ end }}
