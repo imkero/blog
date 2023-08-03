@@ -15,4 +15,4 @@ site = '电脑星人的博客'
 
 [params.umami]
 websiteId = '522309c7-a088-4510-b463-cc55efc48534'
-hostUrl = 'https://pageview.kero.blog'
+hostUrl = 'https://accelerate.pageview.kero.blog'
