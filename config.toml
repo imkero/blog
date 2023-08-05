@@ -1,4 +1,4 @@
-baseURL = 'https://kero.blog/'
+baseURL = 'https://imkero.net/'
 languageCode = 'zh-CN'
 title = '电脑星人'
 theme = 'littlestyleplease'
@@ -9,10 +9,6 @@ categories = "/categories/:slug/"
 [markup.goldmark.renderer]
 unsafe = true
 
-[params.artalk]
-server = 'https://service-cvddowek-1255707222.gz.apigw.tencentcs.com/'
-site = '电脑星人的博客'
-
 [params.umami]
-websiteId = '522309c7-a088-4510-b463-cc55efc48534'
-hostUrl = 'https://accelerate.pageview.kero.blog'
+websiteId = '7eacac23-c4f2-4053-8435-fd989fec95ae'
+hostUrl = 'https://pageview.imkero.net'

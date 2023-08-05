@@ -18,14 +18,14 @@ date: 2023-08-03T15:32:00+08:00
 
 ## 访客统计
 
-- [访客统计](https://pageview.kero.blog/share/6p0PPEcw/kero-blog) 基于 [umami](https://github.com/umami-software/umami)
+- [访客统计](https://pageview.imkero.net/share/ZfoflOcp/imkero) 基于 [umami](https://github.com/umami-software/umami)
 - PV：<span id="pv-text">-</span>
 - UV：<span id="uv-text">-</span>
 
 <script>
 (function() {
   if (!window.fetch) return;
-  fetch('https://pageview.kero.blog/api/share/stats/6p0PPEcw')
+  fetch('https://pageview.imkero.net/api/share/stats/ZfoflOcp')
     .then((response) => {
       return response.json();
     })
