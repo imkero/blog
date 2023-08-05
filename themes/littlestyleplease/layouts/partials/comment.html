@@ -22,5 +22,6 @@
   };
 </script>
 
-<script src="{{ "/lib/artalk@2.4.4/Artalk.js" | relURL }}" async onload="artalkResourceCb('js')"></script>
-<link href="{{ "/lib/artalk@2.4.4/Artalk.css" | relURL }}" rel="stylesheet" media="print" onload="this.media='all';artalkResourceCb('css')">
+{{ $cdnPrefix := os.Getenv "HUGO_CDN_PREFIX" }}
+<script src="{{ $cdnPrefix }}{{ "/lib/artalk@2.4.4/Artalk.js" | relURL }}" async onload="artalkResourceCb('js')"></script>
+<link href="{{ $cdnPrefix }}{{ "/lib/artalk@2.4.4/Artalk.css" | relURL }}" rel="stylesheet" media="print" onload="this.media='all';artalkResourceCb('css')">

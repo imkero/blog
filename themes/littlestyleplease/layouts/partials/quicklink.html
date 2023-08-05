@@ -20,5 +20,6 @@
     }
   };  
 </script>
-<script src="{{ "/lib/quicklink@2.3.0/quicklink.umd.js" | relURL }}" async onload="initQuicklink()"></script>
+{{ $cdnPrefix := os.Getenv "HUGO_CDN_PREFIX" }}
+<script src="{{ $cdnPrefix }}{{ "/lib/quicklink@2.3.0/quicklink.umd.js" | relURL }}" async onload="initQuicklink()"></script>
 {{ end }}
