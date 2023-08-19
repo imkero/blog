@@ -1,7 +1,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "max-age=900, stale-while-revalidate=86400"
+    Cache-Control = "no-cache"
 
 [[headers]]
   for = "/css/*"
