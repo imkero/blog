@@ -9,7 +9,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: UA-123-45
+#googleAnalytics: UA-123-45
 
 minify:
   disableXML: true
@@ -38,7 +38,7 @@ params:
   disableScrollToTop: false
   comments: false
   hidemeta: false
-  hideSummary: false
+  hideSummary: true
   showtoc: true
   tocopen: false
 
@@ -77,7 +77,7 @@ params:
     Content: "让此刻不会老"
 
   socialIcons:
-    - name: github
+    - name: GitHub
       url: "https://github.com/imkero"
 
   analytics:
