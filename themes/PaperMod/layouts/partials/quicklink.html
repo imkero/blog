@@ -1,0 +1,25 @@
+{{ if hugo.IsProduction }}
+<script>
+  window.initQuicklink = function () {
+    const installQuicklink = function () {
+      quicklink.listen({
+        ignores: [
+          /\.xml$/,
+          /#.*/,
+          function (url) { return url === location.href }
+        ],
+      });
+    };
+
+    if (document.readyState === 'complete') {
+      installQuicklink();
+    } else {
+      window.addEventListener('load', function () {
+        installQuicklink();
+      });
+    }
+  };  
+</script>
+{{ $cdnPrefix := os.Getenv "HUGO_CDN_PREFIX" }}
+<script src="{{ $cdnPrefix }}{{ "/lib/quicklink@2.3.0/quicklink.umd.js" | relURL }}" async onload="initQuicklink()"></script>
+{{ end }}
