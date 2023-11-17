@@ -117,7 +117,18 @@ img {
     max-width: 100%;
 }
 
+@media screen and (max-width: 750px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 500;
+    }
+}
+
 .logo a,
 .profile_inner > h1 {
     font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
 }

@@ -64,3 +64,17 @@
 .button:active {
     transform: scale(0.96);
 }
+
+@media screen and (max-width: 750px) {
+    .entry-header h2 {
+        font-size: 20px;
+    }
+
+    .profile-subtitle {
+        font-size: 14px;
+    }
+    
+    .profile-more-post a {
+        font-size: 14px;
+    }
+}
