@@ -148,3 +148,7 @@ markup:
 
 permalinks:
   categories: "/categories/:slug/"
+
+output:
+  ignoreFiles:
+    - "pages/**"

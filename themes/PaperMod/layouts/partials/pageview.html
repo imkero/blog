@@ -1,7 +1,7 @@
 {{ if hugo.IsProduction }}
 
 {{ $cdnPrefix := os.Getenv "HUGO_CDN_PREFIX" }}
-{{ $umamiJs := resources.Get "js/pageview.js" | resources.Fingerprint }}
+{{ $umamiJs := slice (resources.Get "js/pageview.js") | resources.Concat "assets/js/pageview.js" | resources.Fingerprint }}
 {{ $globalSite := site }}
 
 <script

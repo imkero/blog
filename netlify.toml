@@ -5,16 +5,16 @@
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
 
 [[headers]]
-  for = "/css/*"
+  for = "/assets/css/*"
   [headers.values]
     Cache-Control = "max-age=2592000, immutable"
 
 [[headers]]
-  for = "/js/*"
+  for = "/assets/js/*"
   [headers.values]
     Cache-Control = "max-age=2592000, immutable"
 
 [[headers]]
-  for = "/lib/*"
+  for = "/assets/lib/*"
   [headers.values]
     Cache-Control = "max-age=2592000, immutable"
