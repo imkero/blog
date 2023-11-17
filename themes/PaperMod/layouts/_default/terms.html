@@ -11,6 +11,31 @@
 </header>
 {{- end }}
 
+{{ if eq .Type "categories" }}
+{{- $type := .Type }}
+{{ range $key, $value := .Data.Terms.Alphabetical }}
+<article class="post-entry">
+    {{- $name := .Name }}
+    {{- $count := .Count }}
+    <header class="entry-header">
+        <h2>
+            {{- .Name }}
+        </h2>
+    </header>
+
+    {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+    <div class="entry-content">
+        <p>{{ .Description }}</p>
+    </div>
+
+    <footer class="entry-footer">
+        <p>{{ $count }} 篇文章</p>
+    </footer>
+    <a class="entry-link" aria-label="post link to {{ .Name | plainify }}" href="{{ .Permalink }}"></a>
+    {{- end }}
+</article>
+{{ end }}
+{{ else }}
 <ul class="terms-tags">
     {{- $type := .Type }}
     {{- range $key, $value := .Data.Terms.Alphabetical }}
@@ -25,3 +50,5 @@
 </ul>
 
 {{- end }}{{/* end main */ -}}
+
+{{end}}

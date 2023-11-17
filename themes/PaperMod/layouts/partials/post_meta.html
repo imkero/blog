@@ -12,12 +12,16 @@
 {{- $scratch.Add "meta" (slice (i18n "words" .WordCount | default (printf "%d words" .WordCount))) }}
 {{- end }}
 
-{{- if not (.Param "hideAuthor") -}}
+{{/*if not (.Param "hideAuthor") -}}
 {{- with (partial "author.html" .) }}
 {{- $scratch.Add "meta" (slice .) }}
-{{- end }}
-{{- end }}
+{{- end}}
+{{- end*/}}
 
 {{- with ($scratch.Get "meta") }}
-{{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
+{{- delimit . " <span>&nbsp;·&nbsp;</span> " | safeHTML -}}
 {{- end -}}
+{{ range (.GetTerms "categories") }}
+<span>&nbsp;·&nbsp;</span>
+<a class="entry-meta-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+{{ end }}

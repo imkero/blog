@@ -39,6 +39,7 @@
 </script>
 {{- end }}
 
+{{ if not (and .IsHome site.Params.profileMode.enabled) }}
 <header class="header">
     <nav class="nav">
         <div class="logo">
@@ -147,3 +148,4 @@
         </ul>
     </nav>
 </header>
+{{ end }}

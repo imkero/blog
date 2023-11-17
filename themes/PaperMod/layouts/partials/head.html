@@ -119,6 +119,16 @@
 <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
 {{ end -}}
 
+{{ $cdnPrefix := os.Getenv "HUGO_CDN_PREFIX" }}
+{{ if (eq (os.Getenv "HUGO_BUILD_OVERSEA") "1") }}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" media="print" onload="this.media='all'">
+{{ else }}
+{{ $fontStyle := slice (resources.Get "css/font.css") | resources.Concat "assets/css/font.css" | resources.Minify | resources.Fingerprint }}
+<link rel="preconnect" href="https://google-fonts-1255707222.file.myqcloud.com" crossorigin>
+<link rel="stylesheet" href="{{ $cdnPrefix }}{{ $fontStyle.Permalink | relURL }}" media="print" onload="this.media='all'">
+{{ end }}
+
 <noscript>
     <style>
         #theme-toggle,

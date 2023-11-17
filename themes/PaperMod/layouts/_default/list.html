@@ -4,6 +4,8 @@
 {{- partial "index_profile.html" . }}
 {{- else }} {{/* if not profileMode */}}
 
+{{- $pages := union .RegularPages .Sections }}
+
 {{- if not .IsHome | and .Title }}
 <header class="page-header">
   {{- partial "breadcrumbs.html" . }}
@@ -26,6 +28,10 @@
   <div class="post-description">
     {{ .Description | markdownify }}
   </div>
+  {{- else }}
+  <div class="post-description">
+    <p>{{ len $pages }} 篇文章</p>
+  </div>
   {{- end }}
 </header>
 {{- end }}
@@ -37,8 +43,6 @@
   {{- else }}{{ .Content }}{{ end }}
 </div>
 {{- end }}
-
-{{- $pages := union .RegularPages .Sections }}
 
 {{- if .IsHome }}
 {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}

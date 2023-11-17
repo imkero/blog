@@ -6,8 +6,32 @@
 
 .main .profile {
     align-items: center;
-    min-height: calc(100vh - var(--header-height) - var(--footer-height) - (var(--gap) * 2));
+    min-height: calc(100vh - 240px - var(--footer-height) - (var(--gap) * 2));
     text-align: center;
+}
+
+.profile-latest-post {
+    height: 240px;
+}
+
+.profile-latest-post .post-entry {
+    margin-bottom: 0;
+}
+
+.profile-subtitle {
+    color: var(--secondary);
+    font-size: 16px;
+}
+
+.profile-more-post {
+    text-align: right;
+    font-size: 16px;
+}
+
+.profile-more-post a {
+    text-align: right;
+    color: var(--secondary);
+    font-size: 16px;
 }
 
 .profile .profile_inner h1 {

@@ -56,3 +56,24 @@
     </div>
     {{- end}}
 </div>
+
+<div class="profile-latest-post">
+<div class="profile-subtitle">最新文章</div>
+{{ range first 1 (where site.RegularPages "Section" "posts") }}
+<article class="post-entry">
+<header class="entry-header">
+    <h2>
+    {{- .Title }}
+    </h2>
+</header>
+
+<footer class="entry-footer">
+    {{- partial "post_meta.html" . -}}
+</footer>
+
+<a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</article>
+{{ end }}
+<div class="profile-more-post">
+    <a href="/posts">&gt;&gt; 查看更多</a>
+</div>

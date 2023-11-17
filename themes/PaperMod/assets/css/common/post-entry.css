@@ -72,6 +72,10 @@
     font-size: 13px;
 }
 
+.entry-meta-link {
+    color: var(--secondary);
+}
+
 .entry-link {
     position: absolute;
     left: 0;
