@@ -30,7 +30,14 @@
   </div>
   {{- else }}
   <div class="post-description">
-    <p>{{ len $pages }} 篇文章</p>
+    <ul class="terms-tags">
+      {{- range $name, $value := site.Taxonomies.categories }}
+      <li>
+        {{- $page := site.GetPage (printf "/%s/%s" "categories" $name) }}
+        <a href="{{ $page.Permalink }}">{{ $name }} <sup><strong><sup>{{ len .Pages }}</sup></strong></sup> </a>
+      </li>
+      {{- end }}
+    </ul>
   </div>
   {{- end }}
 </header>
