@@ -61,10 +61,10 @@ params:
     enabled: true # needs to be explicitly set
     title: 电脑星人
     subtitle: "让此刻不会老"
-    imageUrl: ""
+    imageUrl: "https://imkero-static-1255707222.file.myqcloud.com/attachments/avatar/avatar-rabbit-2023.jpg"
     imageWidth: 120
     imageHeight: 120
-    imageTitle: my image
+    imageTitle: "电脑星人是只兔子（？）"
     buttons:
       - name: 文章
         url: /posts/
