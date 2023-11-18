@@ -10,19 +10,17 @@
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
+    {{ if (eq (os.Getenv "HUGO_BUILD_CN") "1") }}
+    <br />
+    <span>
+        <a href="https://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">粤ICP备18046161号</a>
+    </span>
+    {{ end }}
+
 </footer>
 
 <script>
-    if (location.host.toLowerCase() === "kenorizon.cn") {
-        const footerEl = document.querySelector("footer.footer");
-        const brEl = document.createElement("br");
-        const beianLinkEl = document.createElement("a");
-        beianLinkEl.href = "https://beian.miit.gov.cn/";
-        beianLinkEl.target = "_blank";
-        beianLinkEl.innerText = "粤ICP备18046161号";
-        footerEl.appendChild(brEl);
-        footerEl.appendChild(beianLinkEl);
-    }
+    
 </script>
 {{- end }}
 

@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
+{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) | and (ne (os.Getenv "HUGO_BUILD_CN") "1") }}
 <meta name="robots" content="index, follow">
 {{- else }}
 <meta name="robots" content="noindex, nofollow">
@@ -9,19 +9,6 @@
 
 {{- /* Title */}}
 <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} - {{ end }}{{ end }}{{ site.Title }}</title>
-
-<script>
-    if (location.host.toLowerCase() === "kenorizon.cn") {
-        if (document.title === "电脑星人" || document.title.lastIndexOf("- 电脑星人") === document.title.length - "- 电脑星人".length) {
-            document.title = document.title + "的编程技术分享";
-        }
-
-        const metaEl = document.createElement("meta");
-        metaEl.name = "robots";
-        metaEl.content = "noindex, nofollow";
-        document.head.appendChild(metaEl);
-    }
-</script>
 
 {{- /* Meta */}}
 {{- if .IsHome }}
