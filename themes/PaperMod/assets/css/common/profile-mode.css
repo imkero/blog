@@ -22,17 +22,11 @@
 .profile-subtitle {
     color: var(--secondary);
     font-size: 16px;
+    margin-bottom: 8px;
 }
 
 .profile-more-post {
-    text-align: right;
-    font-size: 16px;
-}
-
-.profile-more-post a {
-    text-align: right;
-    color: var(--secondary);
-    font-size: 16px;
+    margin-top: 16px;
 }
 
 .profile .profile_inner h1 {
