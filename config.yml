@@ -119,18 +119,18 @@ menu:
       name: 文章
       url: /posts/
       weight: 5
-    - identifier: categories
-      name: 分类
-      url: /categories/
-      weight: 10
     - identifier: links
-      name: 链接
+      name: 友链
       url: /links/
       weight: 20
     - identifier: about
       name: 关于
       url: /about/
       weight: 30
+    - identifier: memos
+      name: 独白
+      url: https://soliloquize.imkero.net/u/imkero
+      weight: 40
     # - identifier: xlog
     #   name: xLog
     #   url: https://xlog.imkero.net/
