@@ -25,8 +25,8 @@ h6 {
 
 body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, Roboto, 'Microsoft YaHei', sans-serif;
-    font-size: 18px;
-    line-height: 2.2;
+    font-size: 16px;
+    line-height: 1.875;
     word-break: break-word;
     background: var(--theme);
 }
@@ -118,12 +118,8 @@ img {
 }
 
 @media screen and (max-width: 750px) {
-    body {
-        font-size: 16px;
-    }
-
     h1, h2, h3, h4, h5, h6 {
-        font-weight: 500;
+        font-weight: 600;
     }
 }
 
