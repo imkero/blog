@@ -11,6 +11,19 @@
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
+
+<script>
+    if (location.host.toLowerCase() === "kenorizon.cn") {
+        const footerEl = document.querySelector("footer.footer");
+        const brEl = document.createElement("br");
+        const beianLinkEl = document.createElement("a");
+        beianLinkEl.href = "https://beian.miit.gov.cn/";
+        beianLinkEl.target = "_blank";
+        beianLinkEl.innerText = "粤ICP备18046161号";
+        footerEl.appendChild(brEl);
+        footerEl.appendChild(beianLinkEl);
+    }
+</script>
 {{- end }}
 
 {{- if (not site.Params.disableScrollToTop) }}

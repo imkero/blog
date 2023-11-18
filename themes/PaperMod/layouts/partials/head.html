@@ -8,7 +8,20 @@
 {{- end }}
 
 {{- /* Title */}}
-<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
+<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} - {{ end }}{{ end }}{{ site.Title }}</title>
+
+<script>
+    if (location.host.toLowerCase() === "kenorizon.cn") {
+        if (document.title === "电脑星人" || document.title.lastIndexOf("- 电脑星人") === document.title.length - "- 电脑星人".length) {
+            document.title = document.title + "的编程技术分享";
+        }
+
+        const metaEl = document.createElement("meta");
+        metaEl.name = "robots";
+        metaEl.content = "noindex, nofollow";
+        document.head.appendChild(metaEl);
+    }
+</script>
 
 {{- /* Meta */}}
 {{- if .IsHome }}
@@ -106,10 +119,10 @@
 
 {{- /* Favicons */}}
 <link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | absURL }}">
-<!-- <link rel="icon" type="image/png" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ site.Params.assets.favicon32x32 | default "favicon-32x32.png" | absURL }}">
 <link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | default "apple-touch-icon.png" | absURL }}">
-<link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab | default "safari-pinned-tab.svg" | absURL }}"> -->
+<!-- <link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab | default "safari-pinned-tab.svg" | absURL }}"> -->
 <meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#2e2e33" }}">
 <meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
 
