@@ -1,4 +1,4 @@
-{{ if hugo.IsProduction }}
+{{ if hugo.IsProduction | and (ne (os.Getenv "HUGO_BUILD_CN") "1")}}
 
 {{ $cdnPrefix := os.Getenv "HUGO_CDN_PREFIX" }}
 {{ $umamiJs := slice (resources.Get "js/pageview.js") | resources.Concat "assets/js/pageview.js" | resources.Fingerprint }}
