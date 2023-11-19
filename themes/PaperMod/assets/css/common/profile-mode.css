@@ -10,7 +10,7 @@
     text-align: center;
 }
 
-.profile-latest-post .post-entry {
+.profile-section .post-entry {
     margin-bottom: 0;
 }
 
@@ -67,4 +67,12 @@
     .profile-more-post a {
         font-size: 14px;
     }
+}
+
+.profile-section {
+    position: relative;
+}
+
+.profile-section + .profile-section {
+    margin-top: 16px;
 }

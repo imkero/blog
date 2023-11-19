@@ -57,7 +57,7 @@
     {{- end}}
 </div>
 
-<div class="profile-latest-post">
+<div class="profile-section">
 <div class="profile-subtitle">最新文章</div>
 {{ range first 1 (where site.RegularPages "Section" "posts") }}
 <article class="post-entry">
@@ -80,4 +80,11 @@
             查看更多&nbsp;»
         </a>
     </nav>
+</div>
+</div>
+
+<div class="profile-section">
+    <div class="profile-subtitle">最新独白</div>
+    <iframe src="https://soliloquize.imkero.net/imkero-embed" frameborder="0" width="100%" height="160px"></iframe>
+    <a class="entry-link" href="https://soliloquize.imkero.net/u/imkero"></a>
 </div>
