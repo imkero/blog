@@ -10,7 +10,7 @@ excerpt: 本文介绍一个基于 LSB 图片隐写的谜题及其解法，祝大
 date: 2023-01-31
 ---
 
-春节假期期间，笔者在 [开往](https://travellings.cn/) 闲逛的时候偶然看到了 [Vinking](https://vinking.top/) 的 [新年游戏](https://vinking.top/76.html)，觉得很有意思，经过一番努力后终于成功完成解谜，这里简单记录一下中间用到的工具与学到的知识。
+春节假期期间，笔者在 [开往](https://www.travellings.cn/) 闲逛的时候偶然看到了 [Vinking](https://vinking.top/) 的 [新年游戏](https://vinking.top/76.html)，觉得很有意思，经过一番努力后终于成功完成解谜，这里简单记录一下中间用到的工具与学到的知识。
 
 ## 题目
 
