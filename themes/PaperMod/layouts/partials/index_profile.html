@@ -84,7 +84,33 @@
 </div>
 
 <div class="profile-section">
-    <div class="profile-subtitle">最新独白</div>
-    <iframe src="https://soliloquize.imkero.net/imkero-embed" frameborder="0" width="100%" height="160px"></iframe>
-    <a class="entry-link" href="https://soliloquize.imkero.net/u/imkero"></a>
+        <div class="profile-subtitle">最新独白</div>
+        <article class="post-entry" id="profile-soliloquize">
+                <div class="post-content">
+                        Loading...
+                </div>
+                <footer class="entry-footer">
+                </footer>
+                
+                <a class="entry-link" href="https://soliloquize.imkero.net/u/imkero"></a>
+        </article>
 </div>
+
+<script>
+fetch('https://soliloquize.imkero.net/latest-memo')
+    .then(response => response.json())
+    .then(data => {
+        const contentEl = document.querySelector('#profile-soliloquize .post-content');
+        contentEl.innerHTML = data.html;
+        const metaEl = document.querySelector('#profile-soliloquize .entry-footer');
+        const dateEl = document.createElement('span');
+        const date = new Date(data.displayTs * 1000);
+        const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        dateEl.textContent = formattedDate;
+        metaEl.appendChild(dateEl);
+    })
+    .catch(error => {
+        console.error('load memo error:', error);
+    });
+</script>
+</script>
