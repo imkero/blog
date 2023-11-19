@@ -70,6 +70,8 @@ params:
         url: /posts/
       - name: 关于
         url: /about/
+      - name: 独白
+        url: https://soliloquize.imkero.net/u/imkero
 
   # home-info mode
   homeInfoParams:
