@@ -79,8 +79,6 @@ params:
     Content: "让此刻不会老"
 
   socialIcons:
-    - name: GitHub
-      url: "https://github.com/imkero"
 
   analytics:
     google:
