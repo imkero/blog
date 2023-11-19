@@ -105,7 +105,10 @@ fetch('https://soliloquize.imkero.net/latest-memo')
         const metaEl = document.querySelector('#profile-soliloquize .entry-footer');
         const dateEl = document.createElement('span');
         const date = new Date(data.displayTs * 1000);
-        const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        const padDigit = (digit) => {
+            return digit < 10 ? `0${digit}` : digit;
+        };
+        const formattedDate = `${date.getFullYear()}-${padDigit(date.getMonth() + 1)}-${padDigit(date.getDate())} ${padDigit(date.getHours())}:${padDigit(date.getMinutes())}`;
         dateEl.textContent = formattedDate;
         metaEl.appendChild(dateEl);
     })

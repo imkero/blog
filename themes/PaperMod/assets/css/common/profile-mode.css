@@ -63,10 +63,6 @@
     .profile-subtitle {
         font-size: 14px;
     }
-    
-    .profile-more-post a {
-        font-size: 14px;
-    }
 }
 
 .profile-section {
@@ -75,4 +71,8 @@
 
 .profile-section + .profile-section {
     margin-top: 16px;
+}
+
+#profile-soliloquize .post-content > p:last-child {
+    margin-bottom: 8px;
 }
