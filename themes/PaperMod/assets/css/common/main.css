@@ -6,6 +6,10 @@
     padding: var(--gap);
 }
 
+.main.main-with-profile {
+    min-height: calc(100vh - var(--footer-height));
+}
+
 .page-header h1 {
     font-size: 36px;
 }
