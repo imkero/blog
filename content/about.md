@@ -1,12 +1,13 @@
 ---
 title: 关于
-date: 2023-08-03T15:32:00+08:00
+date: 2023-11-21T13:42:00+08:00
 ---
 
 ## 关于博主
 
 - 电脑星人 <span class="secondary" title="also known as">a.k.a</span> Kero
 - 技术领域：前端开发 <span class="secondary mh-1">/</span> 物联网
+- GitHub: [imkero](https://github.com/imkero)
 
 ## 关于博客
 
