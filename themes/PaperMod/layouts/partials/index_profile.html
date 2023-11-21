@@ -84,15 +84,20 @@
 </div>
 
 <div class="profile-section">
-        <div class="profile-subtitle">最新独白</div>
-        <article class="post-entry" id="profile-soliloquize">
+        <div class="profile-subtitle">独白</div>
+        <article class="post-entry is-loading" id="profile-soliloquize">
                 <div class="post-content">
                         Loading...
                 </div>
+                <div class="memos-attachments">
+                </div>
                 <footer class="entry-footer">
+                    <span class="soliloquize-link">
+                        <a href="https://soliloquize.imkero.net/u/imkero" target="_blank" rel="noopener">
+                            查看更多
+                        </a>
+                    </span>
                 </footer>
-                
-                <a class="entry-link" href="https://soliloquize.imkero.net/u/imkero"></a>
         </article>
 </div>
 
@@ -100,9 +105,13 @@
 fetch('https://soliloquize.imkero.net/latest-memo')
     .then(response => response.json())
     .then(data => {
+        const containerEl = document.getElementById('profile-soliloquize');
         const contentEl = document.querySelector('#profile-soliloquize .post-content');
+        const footerEl = document.querySelector('#profile-soliloquize .entry-footer');
+        const attachmentsEl = containerEl.querySelector('.memos-attachments');
+        
         contentEl.innerHTML = data.html;
-        const metaEl = document.querySelector('#profile-soliloquize .entry-footer');
+
         const dateEl = document.createElement('span');
         const date = new Date(data.displayTs * 1000);
         const padDigit = (digit) => {
@@ -110,7 +119,30 @@ fetch('https://soliloquize.imkero.net/latest-memo')
         };
         const formattedDate = `${date.getFullYear()}-${padDigit(date.getMonth() + 1)}-${padDigit(date.getDate())} ${padDigit(date.getHours())}:${padDigit(date.getMinutes())}`;
         dateEl.textContent = formattedDate;
-        metaEl.appendChild(dateEl);
+        footerEl.insertBefore(dateEl, footerEl.firstChild);
+
+        data.resourceList.forEach((res) => {
+            const url = 'https://soliloquize.imkero.net/o/r/' + res.id;
+
+            const el = document.createElement('div');
+            el.classList.add('memos-attachment');
+            el.setAttribute('target', '_blank');
+            el.setAttribute('rel', 'noopener');
+
+            const linkEl = document.createElement('a');
+            linkEl.setAttribute('href', url);
+
+            const imgEl = document.createElement('img');
+            imgEl.classList.add('memos-img');
+            imgEl.setAttribute('src', url);
+
+            linkEl.appendChild(imgEl);
+            el.appendChild(linkEl);
+
+            attachmentsEl.appendChild(el);
+        });
+
+        containerEl.classList.remove('is-loading');
     })
     .catch(error => {
         console.error('load memo error:', error);
