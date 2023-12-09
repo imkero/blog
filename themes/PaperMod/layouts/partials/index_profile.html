@@ -122,7 +122,7 @@ fetch('https://soliloquize.imkero.net/latest-memo')
         footerEl.insertBefore(dateEl, footerEl.firstChild);
 
         data.resourceList.forEach((res) => {
-            const url = 'https://soliloquize.imkero.net/o/r/' + res.id;
+            const url = res.externalLink || ('https://soliloquize.imkero.net/o/r/' + res.id);
 
             const el = document.createElement('div');
             el.classList.add('memos-attachment');
